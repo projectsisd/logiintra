@@ -1,37 +1,32 @@
-let idx = null;
-let store = {};
+function render(results, query, panel){
+  // Always clear & show the panel when searching
+  panel.style.display = 'block';
+  panel.innerHTML = "";
 
-async function initSearch() {
-  const response = await fetch('../search_index.json');
-  store = await response.json();
+  if (!results.length){
+    panel.innerHTML = `<li class="nohit">No matches</li>`;
+    return;
+  }
 
-  idx = lunr(function () {
-    this.ref('id');
-    this.field('title');
-    this.field('content');
+  const needle = query.toLowerCase();
+  const rows = results.map(res=>{
+    const doc = store.docs[res.ref];
+    const snippets = snippetsFromMatch(doc.content||'', res.matchData);
+    const frag = buildTextFragment(needle, snippets[0]||'');
+    const href = frag ? `${doc.url}#:~:text=${encodeURIComponent(frag)}` : doc.url;
 
-    store.docs.forEach((doc, i) => {
-      this.add({
-        id: i,
-        title: doc.title,
-        content: doc.content
-      });
-    });
+    const snipHtml = (snippets.length?snippets:[truncate(doc.content||'', SNIPPET_CHARS)])
+      .map(s=>highlight(s, needle))
+      .map(h=>`<div class="result-snippet">${h}</div>`).join('');
+
+    return `
+      <li class="result-item">
+        <a href="${href}" target="_parent">
+          <div class="result-title">${escapeHtml(doc.title||doc.url)}</div>
+          ${snipHtml}
+        </a>
+      </li>`;
   });
 
-  document.getElementById('searchBox').addEventListener('input', function () {
-    let query = this.value;
-    let results = idx.search(query);
-    let resultList = document.getElementById('results');
-    resultList.innerHTML = "";
-
-    results.forEach(r => {
-      let item = store.docs[r.ref];
-      let li = document.createElement('li');
-      li.innerHTML = `<a href="${item.url}">${item.title}</a>`;
-      resultList.appendChild(li);
-    });
-  });
+  panel.innerHTML = rows.join('\n');
 }
-
-window.onload = initSearch;

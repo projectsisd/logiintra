@@ -1,24 +1,23 @@
-{
-  "docs": [
-    {
-      "title": "Home",
-      "url": "index.html",
-      "content": "Welcome to LogiIntra Documentation official docs project intro"
-    },
-    {
-      "title": "Getting Started",
-      "url": "getting-started.html",
-      "content": "Setup instructions installation usage guide for LogiIntra"
-    },
-    {
-      "title": "Module A",
-      "url": "module-a.html",
-      "content": "Details about Module A features configuration"
-    },
-    {
-      "title": "Module B",
-      "url": "module-b.html",
-      "content": "Details about Module B features configuration"
-    }
+// C:\Users\khush\OneDrive\Desktop\logiintra\assets\search_index.js
+window.SEARCH_INDEX = {
+  docs: [
+    { title: "Overview",            url: "index.html" },
+    { title: "Logiintra",           url: "logiintra.html" },
+    { title: "Stock Management",    url: "stock-management.html" },
+    { title: "Accounting",          url: "accounting.html" },
+    { title: "Shipping",            url: "shipping.html" },
+    { title: "Transportation",      url: "transportation.html" },
+
+    // docs/*.html (add all that exist)
+    { title: "Logiintra Base",                  url: "docs/logiintra_base.html" },
+    { title: "Logiintra Cost Items",            url: "docs/logiintra_cost_items.html" },
+    { title: "Logiintra Bill Of Lading",        url: "docs/logiintra_bill_of_lading.html" },
+    { title: "Logiintra Booking DO",            url: "docs/logiintra_generate_booking_do.html" },
+    { title: "Logiintra Export Job",            url: "docs/logiintra_export_job.html" },
+    { title: "Logiintra Export NVOCC",          url: "docs/logiintra_export_nvocc.html" },
+    { title: "Logiintra Import Job",            url: "docs/logiintra_import_job.html" },
+    { title: "Logiintra Import NVOCC",          url: "docs/logiintra_import_nvocc.html" },
+    { title: "Fleet Vehicle Log Fuel",          url: "docs/fleet_vehicle_log_fuel.html" }
+    // …continue listing all pages you want searched
   ]
-}
+};
