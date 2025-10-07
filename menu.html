@@ -1,60 +1,163 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<style>
-  :root{--menu-bg:#000;--menu-text:#fff;--menu-border:#141414;}
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial}
-  nav{background:var(--menu-bg);color:var(--menu-text);border-bottom:1px solid var(--menu-border);
-      padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  nav .brand{font-weight:700;margin-right:18px}
-  nav a{color:var(--menu-text);text-decoration:none;padding:6px 10px;border-radius:8px;display:inline-block}
-  nav a:hover{background:rgba(255,255,255,.08)}
-  .sep{opacity:.6;padding:0 6px}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --menu-bg: #000;
+      --menu-text: #fff;
+      --menu-border: #141414;
+    }
 
-  /* Search (white border) */
-  .search-wrap{position:relative;margin-left:16px;width:360px;max-width:min(60vw,520px);}
-  #searchBox{
-    width:100%; padding:8px 12px; border-radius:8px;
-    border:1px solid #ffffff; background:#0d0d0d; color:#ffffff; outline:none;
-  }
-  #searchBox::placeholder{color:#dddddd}
-  #results{
-    position:absolute; top:42px; left:0; right:0; background:#111; color:#fff;
-    border:1px solid #ffffff; border-radius:10px;
-    box-shadow:0 8px 24px rgba(0,0,0,.35); display:none; max-height:60vh; overflow:auto;
-    z-index:9999; list-style:none; margin:0; padding:0;
-  }
-  #results .result-item{border-bottom:1px solid #2b2b2b}
-  #results .result-item a{display:block; padding:10px 12px; color:#fff; text-decoration:none}
-  #results .result-item a:hover{background:rgba(255,255,255,.08)}
-  #results .result-title{font-weight:600; margin-bottom:4px}
-  #results .result-snippet{font-size:13px; opacity:.9; line-height:1.4}
-  #results .nohit{padding:10px 12px; opacity:.75}
-  mark.hl{background:#333;color:#fff;border-radius:3px;padding:0 2px}
-  /* inline banner if index missing */
-  .search-warn{position:absolute; top:48px; left:0; font-size:12px; color:#ffbcbc}
-</style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial
+    }
+
+    nav {
+      background: var(--menu-bg);
+      color: var(--menu-text);
+      border-bottom: 1px solid var(--menu-border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    nav .brand {
+      font-weight: 700;
+      margin-right: 18px
+    }
+
+    nav a {
+      color: var(--menu-text);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      display: inline-block
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .sep {
+      opacity: .6;
+      padding: 0 6px
+    }
+
+    /* Search container (moved outside nav) */
+    .search-container {
+      padding: 10px 16px;
+      background: #111;
+      border-bottom: 1px solid var(--menu-border);
+    }
+
+    .search-wrap {
+      position: relative;
+      margin: 0;
+      width: 360px;
+      max-width: min(60vw, 520px);
+    }
+
+    #searchBox {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #ffffff;
+      background: #0d0d0d;
+      color: #ffffff;
+      outline: none;
+    }
+
+    #searchBox::placeholder {
+      color: #dddddd
+    }
+
+    #results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #111;
+      color: #fff;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+      display: none;
+      max-height: 60vh;
+      overflow: auto;
+      z-index: 9999;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #results .result-item {
+      border-bottom: 1px solid #2b2b2b
+    }
+
+    #results .result-item a {
+      display: block;
+      padding: 10px 12px;
+      color: #fff;
+      text-decoration: none
+    }
+
+    #results .result-item a:hover {
+      background: rgba(255, 255, 255, .08)
+    }
+
+    #results .result-title {
+      font-weight: 600;
+      margin-bottom: 4px
+    }
+
+    #results .result-snippet {
+      font-size: 13px;
+      opacity: .9;
+      line-height: 1.4
+    }
+
+    #results .nohit {
+      padding: 10px 12px;
+      opacity: .75
+    }
+
+    mark.hl {
+      background: #333;
+      color: #fff;
+      border-radius: 3px;
+      padding: 0 2px
+    }
+
+    /* Inline banner if index missing */
+    .search-warn {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      font-size: 12px;
+      color: #ffbcbc
+    }
+  </style>
 </head>
+
 <body>
-<nav>
-  <span class="brand">Logiintra</span>
-  <a href="index.html" target="_parent">Overview</a><span class="sep">·</span>
-  <a href="logiintra.html" target="_parent">Logiintra</a><span class="sep">·</span>
-  <a href="stock-management.html" target="_parent">Stock Management</a><span class="sep">·</span>
-  <a href="accounting.html" target="_parent">Accounting</a>
+  <nav>
+    <span class="brand">Logiintra</span>
+    <a href="index.html" target="_parent">Overview</a><span class="sep">·</span>
+    <a href="logiintra.html" target="_parent">Logiintra</a><span class="sep">·</span>
+    <a href="stock-management.html" target="_parent">Stock Management</a><span class="sep">·</span>
+    <a href="accounting.html" target="_parent">Accounting</a>
+  </nav>
 
-  <div class="search-wrap">
-    <input id="searchBox" type="search" placeholder="Search docs…" aria-label="Search docs" />
-    <ul id="results"></ul>
-    <div id="searchWarn" class="search-warn" style="display:none"></div>
-  </div>
-</nav>
-
-<!-- Scripts IN THIS ORDER -->
-<script src="assets/lunr.min.js"></script>
-<script src="assets/search_index.js"></script>
-<script src="assets/search.js"></script>
+  <!-- Scripts IN THIS ORDER -->
+  <script src="assets/lunr.min.js"></script>
+  <script src="assets/search_index.js"></script>
+  <script src="assets/search.js"></script>
 </body>
+
 </html>

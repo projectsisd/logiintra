@@ -1,93 +1,107 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<base href="./" />
-<title>Logiintra – Logiintra Docs</title>
-<link rel="stylesheet" href="assets/style.css" />
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="./" />
+  <title>Logiintra</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
-  <div id="menu-wrap"><iframe id="top-menu" src="menu.html"></iframe></div>
+  <div class="top-bar">
+    <div id="menu-wrap"><iframe id="top-menu" src="menu.html" scrolling="no"></iframe></div>
+    <div class="search-wrap">
+      <input id="searchBox" type="search" placeholder="Search docs…" aria-label="Search docs" />
+      <ul id="results"></ul>
+      <div id="searchWarn" class="search-warn" style="display:none"></div>
+    </div>
+  </div>
   <main class="page">
     <header class="page-header">
       <h1>Logiintra</h1>
       <p class="muted">Browse items from Excel</p>
     </header>
     <section class="grid">
-  <aside class="sidebar">
-    
-    <div class="item">
-      <a href="./docs/logiintra_base.html">Logiintra Base</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_cost_items.html">Logiintra Cost Items</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_bill_of_lading.html">Logiintra Bill Of Lading</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_booking_do.html">Logiintra Booking DO</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_coastal_road.html">Logiintra Coastal Road</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_export_bulk.html">Logiintra Export Bulk</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_export_filing.html">Logiintra Export Filing</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_export_job.html">Logiintra Export Job</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_export_nvocc.html">Logiintra Export NVOCC</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_fleet_enhancement.html">Logiintra Fleet Enhancement</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_generate_booking_do.html">Logiintra Generate Booking DO</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_import_bulk.html">Logiintra Import Bulk</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_import_filing.html">Logiintra Import Filing</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_import_job.html">Logiintra Import Job</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_import_nvocc.html">Logiintra Import NVOCC</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_loading_reg.html">Logiintra Loading Reg</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_nvocc_survey_reports.html">Logiintra NVOCC Survey Reports</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_ship_chandling_job.html">Logiintra Ship Chandling Job</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_supplementary_job.html">Logiintra Supplementary Job</a>
-    </div>
-    <div class="item">
-      <a href="./docs/logiintra_tpt_plan.html">Logiintra TPT Plan</a>
-    </div>
-    <div class="item">
-      <a href="./docs/electrical_work.html">Electrical Work</a>
-    </div>
-    <div class="item">
-      <a href="./docs/fleet_vehicle_log_fuel.html">Fleet Vehicle Log Fuel</a>
-    </div>
-  </aside>
-  <section class="content">
-    <div class="card">
-      <p>Select an item from the left to view details.</p>
-    </div>
-  </section>
-</section>
-
+      <aside class="sidebar">
+        <div class="item">
+          <a href="./docs/logiintra_base.html">Logiintra Base</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_cost_items.html">Logiintra Cost Items</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_bill_of_lading.html">Logiintra Bill Of Lading</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_booking_do.html">Logiintra Booking DO</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_coastal_road.html">Logiintra Coastal Road</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_export_bulk.html">Logiintra Export Bulk</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_export_filing.html">Logiintra Export Filing</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_export_job.html">Logiintra Export Job</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_export_nvocc.html">Logiintra Export NVOCC</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_fleet_enhancement.html">Logiintra Fleet Enhancement</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_generate_booking_do.html">Logiintra Generate Booking DO</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_import_bulk.html">Logiintra Import Bulk</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_import_filing.html">Logiintra Import Filing</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_import_job.html">Logiintra Import Job</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_import_nvocc.html">Logiintra Import NVOCC</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_loading_reg.html">Logiintra Loading Reg</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_nvocc_survey_reports.html">Logiintra NVOCC Survey Reports</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_ship_chandling_job.html">Logiintra Ship Chandling Job</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_supplementary_job.html">Logiintra Supplementary Job</a>
+        </div>
+        <div class="item">
+          <a href="./docs/logiintra_tpt_plan.html">Logiintra TPT Plan</a>
+        </div>
+        <div class="item">
+          <a href="./docs/electrical_work.html">Electrical Work</a>
+        </div>
+        <div class="item">
+          <a href="./docs/fleet_vehicle_log_fuel.html">Fleet Vehicle Log Fuel</a>
+        </div>
+      </aside>
+      <section class="content">
+        <div class="card">
+          <p>Select an item from the left to view details.</p>
+        </div>
+      </section>
+    </section>
   </main>
-</body></html>
+  <script src="assets/lunr.min.js"></script>
+  <script src="assets/search_index.js"></script>
+  <script src="assets/search.js"></script>
+</body>
+
+</html>

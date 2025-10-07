@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<base href="../" />
-<title>Logiintra Export Job – Logiintra Docs</title>
-<link rel="stylesheet" href="assets/style.css" />
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="../" />
+  <title>Logiintra Export Job</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
-  <div id="menu-wrap"><iframe id="top-menu" src="menu.html"></iframe></div>
+  <div class="top-bar">
+    <div id="menu-wrap"><iframe id="top-menu" src="menu.html" scrolling="no"></iframe></div>
+    <div class="search-wrap">
+      <input id="searchBox" type="search" placeholder="Search docs…" aria-label="Search docs" />
+      <ul id="results"></ul>
+      <div id="searchWarn" class="search-warn" style="display:none"></div>
+    </div>
+  </div>
   <main class="page">
     <header class="page-header">
       <h1>Logiintra Export Job</h1>
@@ -14,10 +25,19 @@
     </header>
     <article class="content">
       <div class="kv">
-        <div class="label">Technical Name</div><div><code class="inline">logiintra_export_job</code></div>
-        <div class="label">Description</div><div>Export shipping job and billing management for CHA in India customs.</div>
-        <div class="label">Dependency</div><div>mail, logiintra_base, logiintra_booking_do, logiintra_export_filing, stock, hr</div>
+        <div class="label">Technical Name</div>
+        <div><code class="inline">logiintra_export_job</code></div>
+        <div class="label">Description</div>
+        <div>Export shipping job and billing management for CHA in India customs.</div>
+        <div class="label">Dependency</div>
+        <div>mail, logiintra_base, logiintra_booking_do, logiintra_export_filing, stock, hr</div>
       </div>
     </article>
   </main>
-</body></html>
+  <script src="docs/list.js"></script>
+  <script src="assets/lunr.min.js"></script>
+  <script src="assets/search_index.js"></script>
+  <script src="assets/search.js"></script>
+</body>
+
+</html>
