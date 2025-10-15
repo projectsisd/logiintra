@@ -1,15 +1,15 @@
-<<<<<<< HEAD
-hello
-=======
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Overview</title>
+  <base href="../" />
+  <title>Logiintra Booking DO</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
+
+<<<<<<< HEAD
 
 <body>
   <!-- Hidden checkbox for toggle -->
@@ -25,12 +25,18 @@ hello
     <!-- Brand -->
     <a href="index.html" class="brand">Logiintra</a>
     <!-- Search -->
+=======
+<body>
+  <div class="top-bar">
+    <div id="menu-wrap"><iframe id="top-menu" src="menu.html" scrolling="no"></iframe></div>
+>>>>>>> 8b3756fc8b5467d1e11356d5908cd39aac1c8075
     <div class="search-wrap">
       <input id="searchBox" type="search" placeholder="Search docs…" aria-label="Search docs" />
       <ul id="results"></ul>
       <div id="searchWarn" class="search-warn" style="display:none"></div>
     </div>
   </div>
+<<<<<<< HEAD
 
   <!-- Left Sidebar Navigation -->
   <nav class="nav-sidebar">
@@ -41,34 +47,28 @@ hello
       <li><a href="accounting.html">Accounting</a></li>
     </ul>
   </nav>
-
-  <!-- Backdrop overlay (for mobile close-on-outside-click) -->
-  <label for="menu-toggle" class="backdrop"></label>
-
+=======
+>>>>>>> 8b3756fc8b5467d1e11356d5908cd39aac1c8075
   <main class="page">
     <header class="page-header">
-      <h1>Overview</h1>
-      <p class="muted">Main menus: <b>Logiintra</b>, <b>Stock Management</b>, <b>Accounting</b>.</p>
+      <h1>Logiintra Booking DO</h1>
+      <p class="muted">Technical documentation</p>
     </header>
-    <section class="content">
-      <div class="card">
-        <p>Overview</p>
+    <article class="content">
+      <div class="kv">
+        <div class="label">Technical Name</div>
+        <div><code class="inline">logiintra_booking_do</code></div>
+        <div class="label">Description</div>
+        <div>Export or Import booking or DO of shipping line, entry or generation.</div>
+        <div class="label">Dependency</div>
+        <div>base, logiintra_base</div>
       </div>
-    </section>
+    </article>
   </main>
-
-  <!-- Scripts unchanged -->
   <script src="docs/list.js"></script>
   <script src="assets/lunr.min.js"></script>
   <script src="assets/search_index.js"></script>
   <script src="assets/search.js"></script>
-  <script>
-    const toggle = document.getElementById('menu-toggle');
-    document.querySelectorAll('.nav-sidebar a').forEach(link => {
-      link.addEventListener('click', () => { toggle.checked = false; });
-    });
-  </script>
 </body>
 
 </html>
->>>>>>> 70a10d2f9cc99dcda8e910a82d4ae0df5ea460d4
